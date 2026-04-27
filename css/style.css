@@ -789,7 +789,7 @@ section {
   color: var(--color-text-primary);
 }
 .transport-text {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.75;
   color: var(--color-text-primary);
@@ -1189,7 +1189,7 @@ section {
 }
 .acc-row-num {
   font-family: 'MemomentKkukkkuk', var(--font-serif-ko);
-  font-size: 23px;
+  font-size: 22px;
   font-weight: 400;
   color: var(--color-text-primary);
   letter-spacing: 0.01em;
