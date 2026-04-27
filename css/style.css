@@ -789,7 +789,7 @@ section {
   color: var(--color-text-primary);
 }
 .transport-text {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 1.75;
   color: var(--color-text-primary);
@@ -1199,6 +1199,7 @@ section {
 }
 .acc-row-copy {
   flex-shrink: 0;
+  margin-top: -14px;
   padding: 10px 16px;
   font-size: 15px;
   font-weight: 700;
