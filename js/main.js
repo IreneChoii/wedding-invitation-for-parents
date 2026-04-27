@@ -52,17 +52,18 @@ const CONFIG = {
   brideName: '최은서',
 };
 
-// 33 gallery photos exported from Figma (with crops applied)
-const GALLERY_IMAGES = Array.from({ length: 33 }, (_, i) => {
-  const n = String(i + 1).padStart(2, '0');
-  const base = [
-    'town_1','town_2','town_3','yellow_1','yellow_2','yellow_3','home_1','home_2','home_3',
-    'night_1','night_2','night_3','class_1','class_2','class_3','blue_1','blue_2','blue_3',
-    'univ_1','univ_2','univ_3','hi_1','hi_2','hi_3','stair_1','stair_2','stair_3',
-    'green_1','green_2','green_3','smile_1','smile_2','smile_3'
-  ][i];
-  return `images/gallery/${n}_${base}.jpg`;
-});
+// Gallery photos (excluded: 1st row 'town' 01-03, 7th row 'univ' 19-21 → 27 total)
+const GALLERY_IMAGES = [
+  '04_yellow_1','05_yellow_2','06_yellow_3',
+  '07_home_1','08_home_2','09_home_3',
+  '10_night_1','11_night_2','12_night_3',
+  '13_class_1','14_class_2','15_class_3',
+  '16_blue_1','17_blue_2','18_blue_3',
+  '22_hi_1','23_hi_2','24_hi_3',
+  '25_stair_1','26_stair_2','27_stair_3',
+  '28_green_1','29_green_2','30_green_3',
+  '31_smile_1','32_smile_2','33_smile_3',
+].map(slug => `images/gallery/${slug}.jpg`);
 const PREVIEW_COUNT = 6; // first 6 shown directly, rest via "더보기"
 
 const ACCOUNT_DATA = {
@@ -601,10 +602,13 @@ function setupMapModal() {
   // Each app button: try app deep link; if it fails (mostly desktop), fallback to web URL.
   $$('.map-app-btn').forEach(a => {
     a.addEventListener('click', e => {
-      const appUrl = a.getAttribute('href');
-      const webUrl = a.dataset.fallback;
+      const iosUrl  = a.getAttribute('href');
+      const intentUrl = a.dataset.androidIntent;
+      const webUrl  = a.dataset.fallback;
       const ua = navigator.userAgent || '';
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
+      const isAndroid = /Android/i.test(ua);
+      const isIOS = /iPhone|iPad|iPod/i.test(ua);
+      const isMobile = isIOS || isAndroid;
 
       if (!isMobile) {
         // Desktop → open web fallback directly
@@ -612,14 +616,23 @@ function setupMapModal() {
         window.open(webUrl, '_blank', 'noopener');
         return;
       }
-      // Mobile → try app, fallback to web after a short delay
+
       e.preventDefault();
+
+      // Android: prefer intent:// URL when provided. The OS handles missing-app
+      // gracefully (opens Play Store) so no setTimeout fallback needed.
+      if (isAndroid && intentUrl) {
+        window.location.href = intentUrl;
+        return;
+      }
+
+      // iOS (and Android without intent): try app scheme, fall back to web after delay
       const start = Date.now();
       const t = setTimeout(() => {
         if (Date.now() - start < 1800) window.location.href = webUrl;
       }, 1500);
       window.addEventListener('pagehide', () => clearTimeout(t), { once: true });
-      window.location.href = appUrl;
+      window.location.href = iosUrl;
     });
   });
 }
@@ -784,10 +797,10 @@ function setupShuttle() {
     e.preventDefault();
     const fd = new FormData(form);
     const name  = (fd.get('name')  || '').toString().trim();
-    const phone = (fd.get('phone') || '').toString().trim();
     const count = parseInt(fd.get('count'), 10) || 1;
     const side  = 'groom'; // 진주 출발 셔틀은 전원 신랑측
-    if (!name || !phone) return;
+    const phone = '';      // 개인정보 수집 제외 — 빈 문자열로 NOT NULL 충족
+    if (!name) return;
 
     const submitBtn = form.querySelector('button[type="submit"]');
     submitBtn.disabled = true;

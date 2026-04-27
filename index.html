@@ -162,7 +162,7 @@
       <hr class="when-divider">
       <div class="when-row">
         <p class="when-label">Venue</p>
-        <p class="when-value">더뉴컨벤션 르노브홀<br><span style="font-size:13px; color:var(--color-text-secondary);">서울 강서구 공항대로 36길 57</span></p>
+        <p class="when-value">더뉴컨벤션 르노브홀<br><span style="font-size: 17px; font-weight:500; color:var(--color-text-secondary);">서울 강서구 공항대로 36길 57</span></p>
       </div>
     </div>
   </section>
@@ -206,15 +206,15 @@
     </ul>
   </section>
 
-  <!-- 6-2. SHUTTLE BUS -->
+  <!-- 6-2. CHARTER BUS -->
   <section class="sec-shuttle">
-    <p class="eyebrow">Shuttle Bus</p>
-    <h2 class="section-title">진주 출발 셔틀버스</h2>
+    <p class="eyebrow">Charter Bus</p>
+    <h2 class="section-title">진주 출발 대절버스</h2>
     <hr class="divider">
 
     <p class="shuttle-section-desc">
       진주에서 출발하시는 하객분을 위해<br>
-      셔틀버스를 운행합니다.
+      대절버스를 운행합니다.
     </p>
 
     <div class="when-card shuttle-card">
@@ -235,7 +235,7 @@
     </p>
 
     <div class="shuttle-section-actions">
-      <button class="classic-btn classic-btn--accent" id="open-shuttle-form-inline">셔틀버스 탑승 신청</button>
+      <button class="classic-btn classic-btn--accent" id="open-shuttle-form-inline">참석 의사 전달</button>
       <button class="classic-btn classic-btn--ghost" id="reopen-shuttle-notice">전체 안내 다시 보기</button>
     </div>
   </section>
@@ -496,8 +496,10 @@
          data-fallback="https://map.kakao.com/?q=더뉴컨벤션웨딩" target="_blank" rel="noopener" aria-label="카카오맵">
         <img src="images/icon/kakao.png" alt="카카오맵">
       </a>
-      <a class="map-app-btn" href="tmap://search?name=더뉴컨벤션웨딩"
-         data-fallback="https://tmap.life/" target="_blank" rel="noopener" aria-label="T맵">
+      <a class="map-app-btn"
+         href="tmap://route?goalname=%EB%8D%94%EB%89%B4%EC%BB%A8%EB%B2%A4%EC%85%98&goalx=126.8369448&goaly=37.5563586"
+         data-android-intent="intent://route?goalname=%EB%8D%94%EB%89%B4%EC%BB%A8%EB%B2%A4%EC%85%98&goalx=126.8369448&goaly=37.5563586#Intent;scheme=tmap;package=com.skt.tmap.ku;end"
+         data-fallback="https://m.tmap.co.kr/" target="_blank" rel="noopener" aria-label="T맵">
         <img src="images/icon/Tmap.png" alt="T맵">
       </a>
     </div>
@@ -509,7 +511,6 @@
   <div class="modal shuttle-modal">
     <button class="modal-close shuttle-modal-close" data-close="shuttle-notice" aria-label="닫기">×</button>
     <div class="shuttle-notice-body">
-      <p class="shuttle-eyebrow">Shuttle Bus</p>
       <p class="shuttle-heart" aria-hidden="true">♥</p>
       <h3 id="shuttle-notice-title" class="shuttle-title">진주에서 출발하시는<br>하객분께</h3>
       <hr class="divider">
@@ -525,10 +526,10 @@
         </div>
       </dl>
 
-      <p class="shuttle-help">탑승 인원 파악을 위해<br>아래에서 신청해 주시면 감사하겠습니다.</p>
+      <p class="shuttle-help">참석 여부를 알려주세요.<br>참석해 주실 모든 분을<br>감사한 마음으로 기다리겠습니다.</p>
 
       <div class="shuttle-actions">
-        <button class="classic-btn classic-btn--accent" id="open-shuttle-form">셔틀버스 탑승 신청</button>
+        <button class="classic-btn classic-btn--accent" id="open-shuttle-form">참석 의사 전달</button>
         <button class="classic-btn classic-btn--ghost" data-close="shuttle-notice">닫기</button>
       </div>
     </div>
@@ -539,20 +540,18 @@
 <div class="modal-overlay" id="shuttle-form-modal" role="dialog" aria-modal="true">
   <div class="modal">
     <div class="modal-header">
-      <h3>셔틀버스 탑승 신청</h3>
+      <h3>참석 의사 전달</h3>
       <button class="modal-close" data-close="shuttle-form">×</button>
     </div>
     <div class="modal-body">
-      <p class="msg-form-hint" style="margin-bottom: 12px;">진주에서 출발하는 셔틀버스 탑승 인원 확인용입니다.</p>
       <form class="msg-form" id="shuttle-form">
         <input type="text" name="name" placeholder="성함" maxlength="20" required>
-        <input type="tel" name="phone" placeholder="연락처 (010-0000-0000)" maxlength="20" required>
         <div class="shuttle-count-row">
           <label for="shuttle-count">탑승 인원</label>
           <input id="shuttle-count" type="number" name="count" min="1" max="10" value="1" required>
           <span>명</span>
         </div>
-        <button type="submit" class="classic-btn classic-btn--accent msg-form-submit">신청 완료</button>
+        <button type="submit" class="classic-btn classic-btn--accent msg-form-submit">참석 의사 전달</button>
         <p id="shuttle-form-status" class="photo-upload-status"></p>
       </form>
     </div>
