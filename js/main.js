@@ -1004,7 +1004,13 @@ function setupPhotoShare() {
       return;
     }
 
-    const uploader = (nameInput.value || '').trim().replace(/[^a-zA-Z0-9가-힣_-]/g, '') || 'guest';
+    // Supabase Storage rejects non-ASCII characters in object keys, so the
+    // folder name must be ASCII-safe. The original (Korean) name is preserved
+    // as object metadata so the couple can still see who uploaded what.
+    const rawName = (nameInput.value || '').trim();
+    const asciiName = rawName.replace(/[^a-zA-Z0-9_-]/g, '');
+    const sessionId = Math.random().toString(36).slice(2, 8);
+    const uploader = asciiName || `guest_${sessionId}`;
     uploadBtn.disabled = true;
     let done = 0, failed = 0;
     setStatus(`0 / ${pendingPhotos.length} 업로드 중...`, '');
@@ -1016,9 +1022,11 @@ function setupPhotoShare() {
         const ts = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
         const rand = Math.random().toString(36).slice(2, 8);
         const path = `${uploader}/${ts}_${rand}.${ext}`;
+        const fileOpts = { contentType: file.type, cacheControl: '3600' };
+        if (rawName) fileOpts.metadata = { uploader_name: rawName };
         const { error } = await supabaseClient.storage
           .from(PHOTO_BUCKET)
-          .upload(path, file, { contentType: file.type, cacheControl: '3600' });
+          .upload(path, file, fileOpts);
         if (error) throw error;
         done++;
         setStatus(`${done} / ${pendingPhotos.length} 업로드 중...`, '');
