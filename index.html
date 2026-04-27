@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>박익현 · 최은서 결혼합니다</title>
+
+  <!-- ===== Open Graph (KakaoTalk · Facebook · 카톡 미리보기) =====
+       카카오톡 크롤러는 절대 URL만 읽으므로 https://... 형태로 작성 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="박익현 · 최은서 결혼합니다">
+  <meta property="og:description" content="2026.06.13 SAT 12:30 PM  ·  더뉴컨벤션 르노브홀">
+  <meta property="og:image" content="https://irenechoii.github.io/wedding-invitation-for-parents/images/figma/og.jpg">
+  <meta property="og:image:secure_url" content="https://irenechoii.github.io/wedding-invitation-for-parents/images/figma/og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="박익현 · 최은서 결혼합니다">
+  <meta property="og:url" content="https://irenechoii.github.io/wedding-invitation-for-parents/">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="청첩장">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="박익현 · 최은서 결혼합니다">
+  <meta name="twitter:description" content="2026.06.13 SAT 12:30 PM  ·  더뉴컨벤션 르노브홀">
+  <meta name="twitter:image" content="https://irenechoii.github.io/wedding-invitation-for-parents/images/figma/og.jpg">
+  <meta name="description" content="2026년 6월 13일, 박익현과 최은서가 결혼합니다. 귀한 걸음으로 축복해 주시면 더없는 기쁨이겠습니다.">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- BGM (loop, user-toggleable) -->
+<audio id="bgm" src="audio/bgm.mp3" loop preload="auto"></audio>
+<button id="bgm-toggle" class="bgm-toggle" aria-label="배경음악 켜기/끄기">
+  <span class="bgm-icon-on">♪</span>
+</button>
+
+<main class="page">
+
+  <!-- 1. COVER -->
+  <section class="sec-cover">
+    <div class="cover-corner">
+      <span>The Wedding</span>
+      <span>2026 · 06 · 13</span>
+    </div>
+
+    <h1 class="cover-name-en">
+      <em>Ikhyun</em>
+      <span class="cover-name-mid">&amp;</span>
+      <em>Eunsuh</em>
+    </h1>
+
+    <div class="cover-photo-frame">
+      <img class="cover-photo" src="images/cover/cover.jpg" alt="박익현 · 최은서 결혼식 표지 사진">
+    </div>
+
+    <p class="cover-name-ko">박익현<span>·</span>최은서</p>
+
+    <div class="cover-meta">
+      <div class="cover-meta-line">
+        <span>2026 . 06 . 13</span>
+        <span class="sep">·</span>
+        <span>SAT</span>
+        <span class="sep">·</span>
+        <span>12:30 PM</span>
+      </div>
+      <div class="cover-meta-venue">더뉴컨벤션 르노브홀</div>
+    </div>
+  </section>
+
+  <!-- 2. GREETING -->
+  <section class="sec-greeting">
+    <p class="greeting-heart" aria-hidden="true">♥</p>
+    <p class="eyebrow">Invitation</p>
+    <h2 class="section-title">저희 결혼해요!</h2>
+    <hr class="divider">
+
+    <div class="greeting-body">
+      <p>
+        스물 하나, 스물 다섯에 만난 우리,<br>
+        어느덧 함께 걸어온 시간이 차곡차곡 쌓여<br>
+        이제 평생을 약속하려 합니다.
+      </p>
+      <p>
+        함께 꾸어온 작은 꿈들이 모여<br>
+        가장 큰 약속이 되었습니다.<br>
+        귀한 걸음으로 축복해 주신다면<br>
+        더없이 큰 기쁨이 될 것 같습니다.<br>
+        감사합니다
+      </p>
+    </div>
+
+    <div class="parents-block">
+      <p class="parents-row">
+        <span>박용조</span>
+        <span class="parents-amp">·</span>
+        <span>윤혜숙</span>
+        <span class="parents-of">의 장남</span>
+        <span class="parents-child">익현</span>
+      </p>
+      <p class="parents-row">
+        <span>최병석</span>
+        <span class="parents-amp">·</span>
+        <span>김윤정</span>
+        <span class="parents-of">의 장녀</span>
+        <span class="parents-child">은서</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- 3. GALLERY -->
+  <section class="sec-gallery">
+    <p class="eyebrow">Our Days</p>
+    <h2 class="section-title-en">Gallery</h2>
+    <h3 class="section-title">함께한 시간</h3>
+    <hr class="divider">
+
+    <div class="gallery-preview" id="gallery-preview"></div>
+    <div class="gallery-more-wrap">
+      <button class="classic-btn" id="gallery-more">갤러리 더보기</button>
+    </div>
+  </section>
+
+  <!-- 4. CALENDAR -->
+  <section class="sec-calendar">
+    <p class="eyebrow">Save the Date</p>
+    <p class="calendar-month"><em>June</em> · <em>2026</em></p>
+    <p class="calendar-sub">our wedding day</p>
+
+    <table class="calendar-table" aria-label="2026년 6월 캘린더">
+      <thead>
+        <tr>
+          <th class="sun">Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th class="sat">Sat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+        <tr><td class="sun">7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td class="wedding-day"><span>13</span></td></tr>
+        <tr><td class="sun">14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
+        <tr><td class="sun">21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td></tr>
+        <tr><td class="sun">28</td><td>29</td><td>30</td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <div class="dday-block" id="dday-block">
+      익현 · 은서의 결혼식까지 <strong id="dday-counter">D-000</strong>
+    </div>
+  </section>
+
+  <!-- 5. WHEN & WHERE -->
+  <section class="sec-when">
+    <p class="eyebrow">When &amp; Where</p>
+    <h2 class="section-title">예식 안내</h2>
+    <hr class="divider">
+
+    <div class="when-card">
+      <div class="when-row">
+        <p class="when-label">Date</p>
+        <p class="when-value">2026년 6월 13일 토요일<br>오후 12시 30분</p>
+      </div>
+      <hr class="when-divider">
+      <div class="when-row">
+        <p class="when-label">Venue</p>
+        <p class="when-value">더뉴컨벤션 르노브홀<br><span style="font-size:13px; color:var(--color-text-secondary);">서울 강서구 공항대로 36길 57</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. DIRECTIONS -->
+  <section class="sec-directions">
+    <p class="eyebrow">Directions</p>
+    <h2 class="section-title">오시는 길</h2>
+    <hr class="divider">
+
+    <div class="venue-block">
+      <p class="venue-name-en">The New Convention</p>
+      <p class="venue-name">더뉴컨벤션 · 르노브홀</p>
+      <p class="venue-address">서울 강서구 공항대로 36길 57</p>
+    </div>
+
+    <div class="map-preview">
+      <img class="map-img" src="images/figma/map.png" alt="더뉴컨벤션 르노브홀 약도">
+    </div>
+
+    <div class="map-actions">
+      <button class="classic-btn classic-btn--accent" id="open-map-modal">지도 바로가기</button>
+    </div>
+
+    <ul class="transport-list">
+      <li class="transport-item">
+        <p class="transport-label">01 · Subway</p>
+        <p class="transport-title">지하철</p>
+        <p class="transport-text">5호선 발산역 7번, 8번 출구 하차 후 도보 약 5분</p>
+      </li>
+      <li class="transport-item">
+        <p class="transport-label">02 · Bus</p>
+        <p class="transport-title">버스</p>
+        <p class="transport-text">발산역 5번 출구 정류장 하차 후 도보 약 7분</p>
+      </li>
+      <li class="transport-item">
+        <p class="transport-label">03 · Parking</p>
+        <p class="transport-title">자가용 · 주차</p>
+        <p class="transport-text">건물 내 주차장 이용 가능 (2시간 무료)</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 6-2. SHUTTLE BUS -->
+  <section class="sec-shuttle">
+    <p class="eyebrow">Shuttle Bus</p>
+    <h2 class="section-title">진주 출발 셔틀버스</h2>
+    <hr class="divider">
+
+    <p class="shuttle-section-desc">
+      진주에서 출발하시는 하객분을 위해<br>
+      셔틀버스를 운행합니다.
+    </p>
+
+    <div class="when-card shuttle-card">
+      <div class="when-row">
+        <p class="when-label">Time</p>
+        <p class="when-value">06시 30분 까지</p>
+      </div>
+      <hr class="when-divider">
+      <div class="when-row">
+        <p class="when-label">Place</p>
+        <p class="when-value">진주교육대학교<br>학교본부 앞</p>
+      </div>
+    </div>
+
+    <p class="shuttle-section-help">
+      탑승 인원 파악을 위해<br>
+      아래에서 신청해 주시면 감사하겠습니다.
+    </p>
+
+    <div class="shuttle-section-actions">
+      <button class="classic-btn classic-btn--accent" id="open-shuttle-form-inline">셔틀버스 탑승 신청</button>
+      <button class="classic-btn classic-btn--ghost" id="reopen-shuttle-notice">전체 안내 다시 보기</button>
+    </div>
+  </section>
+
+  <!-- 7. CONTACT -->
+  <section class="sec-contact">
+    <p class="eyebrow">Contact</p>
+    <h2 class="section-title">연락하기</h2>
+    <hr class="divider">
+
+    <details class="contact-group">
+      <summary>
+        <span class="contact-side-label">Groom</span>
+        <span>신랑측에 연락하기</span>
+      </summary>
+      <ul class="contact-list">
+        <li class="contact-item">
+          <span><span class="contact-name-role">신랑</span><span class="contact-name">박익현</span></span>
+          <span class="contact-actions">
+            <a class="contact-icon-btn" href="tel:010-2544-4755" aria-label="박익현 전화">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+            <a class="contact-icon-btn" href="sms:010-2544-4755" aria-label="박익현 문자">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+          </span>
+        </li>
+        <li class="contact-item">
+          <span><span class="contact-name-role">父</span><span class="contact-name">박용조</span></span>
+          <span class="contact-actions">
+            <a class="contact-icon-btn" href="tel:010-3242-4755" aria-label="박용조 전화">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+            <a class="contact-icon-btn" href="sms:010-3242-4755" aria-label="박용조 문자">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+          </span>
+        </li>
+        <li class="contact-item">
+          <span><span class="contact-name-role">母</span><span class="contact-name">윤혜숙</span></span>
+          <span class="contact-actions">
+            <a class="contact-icon-btn" href="tel:010-2719-4755" aria-label="윤혜숙 전화">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+            <a class="contact-icon-btn" href="sms:010-2719-4755" aria-label="윤혜숙 문자">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+          </span>
+        </li>
+      </ul>
+    </details>
+
+    <details class="contact-group">
+      <summary>
+        <span class="contact-side-label">Bride</span>
+        <span>신부측에 연락하기</span>
+      </summary>
+      <ul class="contact-list">
+        <li class="contact-item">
+          <span><span class="contact-name-role">신부</span><span class="contact-name">최은서</span></span>
+          <span class="contact-actions">
+            <a class="contact-icon-btn" href="tel:010-2700-9623" aria-label="최은서 전화">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+            <a class="contact-icon-btn" href="sms:010-2700-9623" aria-label="최은서 문자">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+          </span>
+        </li>
+        <li class="contact-item">
+          <span><span class="contact-name-role">父</span><span class="contact-name">최병석</span></span>
+          <span class="contact-actions">
+            <a class="contact-icon-btn" href="tel:010-3303-6342" aria-label="최병석 전화">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+            <a class="contact-icon-btn" href="sms:010-3303-6342" aria-label="최병석 문자">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+          </span>
+        </li>
+        <li class="contact-item">
+          <span><span class="contact-name-role">母</span><span class="contact-name">김윤정</span></span>
+          <span class="contact-actions">
+            <a class="contact-icon-btn" href="tel:010-5699-9623" aria-label="김윤정 전화">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+            <a class="contact-icon-btn" href="sms:010-5699-9623" aria-label="김윤정 문자">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+          </span>
+        </li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- 8. ACCOUNT -->
+  <section class="sec-account">
+    <p class="eyebrow">With Heart</p>
+    <h2 class="section-title">마음 전하실 곳</h2>
+    <hr class="divider">
+
+    <p class="account-hint">
+      참석이 어려우신 분들을 위해<br>
+      계좌번호로 마음을 전하실 수 있도록<br>
+      안내드립니다.
+    </p>
+
+    <div class="account-buttons">
+      <button class="acc-btn" data-side="groom">
+        <span class="acc-btn-en">Groom Side</span>
+        신랑측 계좌번호
+      </button>
+      <button class="acc-btn" data-side="bride">
+        <span class="acc-btn-en">Bride Side</span>
+        신부측 계좌번호
+      </button>
+    </div>
+  </section>
+
+  <!-- 9. GUESTBOOK -->
+  <section class="sec-guestbook">
+    <p class="eyebrow">Guestbook</p>
+    <h2 class="section-title-en">With Love</h2>
+    <h3 class="section-title">축하의 글</h3>
+    <hr class="divider">
+
+    <p class="msg-status" id="msg-status">로컬 저장 모드</p>
+    <div class="msg-list" id="msg-list"></div>
+    <div class="msg-dots" id="msg-dots"></div>
+    <button class="classic-btn" id="open-message-form">축하글 남기기</button>
+  </section>
+
+  <!-- 10. PHOTO SHARE -->
+  <section class="sec-photo-share">
+    <p class="eyebrow">Photo</p>
+    <h2 class="section-title">함께한 순간을 나눠주세요</h2>
+    <hr class="divider">
+
+    <p class="photo-share-desc">
+      예식장에서 담아주신 소중한 사진을<br>
+      신랑 · 신부에게 보내주시면<br>
+      오래도록 간직하겠습니다.
+    </p>
+
+    <button class="classic-btn classic-btn--accent" id="open-photo-share">사진 보내기</button>
+  </section>
+
+  <!-- 11. SHARE INVITATION -->
+  <section class="sec-share">
+    <p class="eyebrow">Share</p>
+    <h2 class="section-title">청첩장 공유하기</h2>
+    <hr class="divider">
+
+    <div class="share-buttons">
+      <button class="share-btn" id="share-kakao" aria-label="카카오톡 공유하기">
+        <img src="images/icon/kakao-share.png" alt="카카오톡">
+      </button>
+      <button class="share-btn" id="share-link" aria-label="링크 복사하기">
+        <img src="images/icon/link-share.png" alt="링크 복사">
+      </button>
+    </div>
+  </section>
+
+  <!-- 12. THANKS -->
+  <section class="sec-thanks">
+    <svg class="thanks-leaf" viewBox="0 0 80 40" fill="none" stroke="#c4a574" stroke-width="1" stroke-linecap="round" aria-hidden="true">
+      <path d="M10 20 Q40 4, 70 20" />
+      <path d="M40 12 L40 20" />
+      <path d="M30 16 Q35 11, 40 12" />
+      <path d="M50 16 Q45 11, 40 12" />
+      <circle cx="10" cy="20" r="1.4" fill="#c4a574"/>
+      <circle cx="70" cy="20" r="1.4" fill="#c4a574"/>
+    </svg>
+    <p class="thanks-en"><em>Thank You</em></p>
+    <p class="thanks-ko">감사합니다</p>
+    <p class="thanks-credit">Ikhyun &amp; Eunsuh · 2026</p>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     MODALS
+     ============================================================ -->
+
+<!-- Gallery full modal -->
+<div class="gallery-modal" id="gallery-modal">
+  <div class="gallery-modal-inner">
+    <div class="gallery-modal-header">
+      <button class="gallery-modal-close" id="gallery-modal-close" aria-label="닫기">×</button>
+      <div class="gallery-modal-titles">
+        <p class="gallery-modal-eyebrow">Ikhyun &amp; Eunsuh</p>
+        <h3 class="gallery-modal-title">Our Gallery</h3>
+        <p class="gallery-modal-count" id="gallery-modal-count"></p>
+      </div>
+    </div>
+    <div class="gallery-modal-grid" id="gallery-modal-grid"></div>
+    <div class="gallery-modal-foot">· · ·</div>
+  </div>
+</div>
+
+<!-- Account modal -->
+<div class="modal-overlay" id="account-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="account-modal-title">계좌 정보</h3>
+      <button class="modal-close" data-close="account">×</button>
+    </div>
+    <div class="modal-body" id="account-modal-body"></div>
+  </div>
+</div>
+
+<!-- Message form modal -->
+<div class="modal-overlay" id="message-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>축하글 남기기</h3>
+      <button class="modal-close" data-close="message">×</button>
+    </div>
+    <div class="modal-body">
+      <form class="msg-form" id="message-form">
+        <input type="text" name="name" placeholder="이름" maxlength="20" required>
+        <input type="password" name="password" placeholder="비밀번호 (삭제 시 필요)" maxlength="20" required>
+        <textarea name="body" placeholder="신랑 · 신부에게 축하의 마음을 전해주세요" maxlength="300" required></textarea>
+        <p class="msg-form-hint">비밀번호는 삭제하실 때만 사용됩니다.</p>
+        <button type="submit" class="classic-btn classic-btn--accent msg-form-submit">작성 완료</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Delete password modal -->
+<div class="modal-overlay" id="delete-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>축하글 삭제</h3>
+      <button class="modal-close" data-close="delete">×</button>
+    </div>
+    <div class="modal-body">
+      <form class="msg-form" id="delete-form">
+        <p class="msg-form-hint">작성 시 입력하신 비밀번호를 입력해 주세요.</p>
+        <input type="password" id="delete-password" placeholder="비밀번호" maxlength="20" required>
+        <button type="submit" class="classic-btn classic-btn--accent msg-form-submit">삭제</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Map shortcut modal -->
+<div class="modal-overlay" id="map-modal">
+  <div class="modal map-modal">
+    <button class="modal-close map-modal-close" data-close="map" aria-label="닫기">×</button>
+    <div class="map-modal-body">
+      <a class="map-app-btn" href="nmap://search?query=더뉴컨벤션웨딩"
+         data-fallback="https://map.naver.com/p/search/더뉴컨벤션웨딩%20르노브홀" target="_blank" rel="noopener" aria-label="네이버지도">
+        <img src="images/icon/naver.png" alt="네이버지도">
+      </a>
+      <a class="map-app-btn" href="kakaomap://search?q=더뉴컨벤션웨딩"
+         data-fallback="https://map.kakao.com/?q=더뉴컨벤션웨딩" target="_blank" rel="noopener" aria-label="카카오맵">
+        <img src="images/icon/kakao.png" alt="카카오맵">
+      </a>
+      <a class="map-app-btn" href="tmap://search?name=더뉴컨벤션웨딩"
+         data-fallback="https://tmap.life/" target="_blank" rel="noopener" aria-label="T맵">
+        <img src="images/icon/Tmap.png" alt="T맵">
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Shuttle bus notice (opening popup) -->
+<div class="modal-overlay shuttle-overlay" id="shuttle-notice-modal" role="dialog" aria-modal="true" aria-labelledby="shuttle-notice-title">
+  <div class="modal shuttle-modal">
+    <button class="modal-close shuttle-modal-close" data-close="shuttle-notice" aria-label="닫기">×</button>
+    <div class="shuttle-notice-body">
+      <p class="shuttle-eyebrow">Shuttle Bus</p>
+      <p class="shuttle-heart" aria-hidden="true">♥</p>
+      <h3 id="shuttle-notice-title" class="shuttle-title">진주에서 출발하시는<br>하객분께</h3>
+      <hr class="divider">
+
+      <dl class="shuttle-info">
+        <div class="shuttle-info-row">
+          <dt>탑승시각</dt>
+          <dd>06시 30분 까지</dd>
+        </div>
+        <div class="shuttle-info-row">
+          <dt>탑승장소</dt>
+          <dd>진주교육대학교<br>학교본부 앞</dd>
+        </div>
+      </dl>
+
+      <p class="shuttle-help">탑승 인원 파악을 위해<br>아래에서 신청해 주시면 감사하겠습니다.</p>
+
+      <div class="shuttle-actions">
+        <button class="classic-btn classic-btn--accent" id="open-shuttle-form">셔틀버스 탑승 신청</button>
+        <button class="classic-btn classic-btn--ghost" data-close="shuttle-notice">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Shuttle registration form -->
+<div class="modal-overlay" id="shuttle-form-modal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>셔틀버스 탑승 신청</h3>
+      <button class="modal-close" data-close="shuttle-form">×</button>
+    </div>
+    <div class="modal-body">
+      <p class="msg-form-hint" style="margin-bottom: 12px;">진주에서 출발하는 셔틀버스 탑승 인원 확인용입니다.</p>
+      <form class="msg-form" id="shuttle-form">
+        <input type="text" name="name" placeholder="성함" maxlength="20" required>
+        <input type="tel" name="phone" placeholder="연락처 (010-0000-0000)" maxlength="20" required>
+        <div class="shuttle-count-row">
+          <label for="shuttle-count">탑승 인원</label>
+          <input id="shuttle-count" type="number" name="count" min="1" max="10" value="1" required>
+          <span>명</span>
+        </div>
+        <button type="submit" class="classic-btn classic-btn--accent msg-form-submit">신청 완료</button>
+        <p id="shuttle-form-status" class="photo-upload-status"></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Photo share modal -->
+<div class="modal-overlay" id="photo-share-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>사진 보내기</h3>
+      <button class="modal-close" data-close="photo-share">×</button>
+    </div>
+    <div class="modal-body">
+      <p class="photo-share-desc" style="margin-bottom: 4px; text-align: left;">
+        예식 사진을 신랑 · 신부에게 보내주세요.
+      </p>
+      <input type="text" id="photo-uploader-name" class="photo-share-name" placeholder="이름 (선택)" maxlength="20">
+      <label class="photo-drop" for="photo-input">
+        <span class="photo-drop-icon">Photo</span>
+        <span class="photo-drop-text">사진 선택하기</span>
+        <span class="photo-drop-hint">여러 장 한꺼번에 선택 가능</span>
+        <input type="file" id="photo-input" multiple accept="image/*" hidden>
+      </label>
+      <div id="photo-preview" class="photo-preview"></div>
+      <button class="classic-btn classic-btn--accent photo-upload-btn" id="photo-upload-btn">업로드</button>
+      <p id="photo-upload-status" class="photo-upload-status"></p>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="닫기">×</button>
+  <div class="lightbox-stage">
+    <div class="lightbox-side lightbox-side-prev"><img id="lightbox-prev-thumb" src="" alt=""></div>
+    <div class="lightbox-frame">
+      <img id="lightbox-img" src="" alt="">
+    </div>
+    <div class="lightbox-side lightbox-side-next"><img id="lightbox-next-thumb" src="" alt=""></div>
+  </div>
+  <div class="lightbox-nav">
+    <button id="lightbox-prev" aria-label="이전">‹</button>
+    <span class="lightbox-counter" id="lightbox-counter"></span>
+    <button id="lightbox-next" aria-label="다음">›</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
