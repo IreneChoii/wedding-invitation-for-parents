@@ -1009,6 +1009,7 @@ function setupPhotoShare() {
     let done = 0, failed = 0;
     setStatus(`0 / ${pendingPhotos.length} 업로드 중...`, '');
 
+    let lastError = null;
     for (const file of pendingPhotos) {
       try {
         const ext = (file.name.split('.').pop() || 'jpg').toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -1023,6 +1024,7 @@ function setupPhotoShare() {
         setStatus(`${done} / ${pendingPhotos.length} 업로드 중...`, '');
       } catch (err) {
         console.error('upload failed:', err);
+        lastError = err;
         failed++;
       }
     }
@@ -1037,7 +1039,8 @@ function setupPhotoShare() {
         setStatus('', '');
       }, 1800);
     } else {
-      setStatus(`✓ ${done}장 성공 / ✗ ${failed}장 실패`, 'error');
+      const detail = lastError && lastError.message ? lastError.message : '알 수 없는 오류';
+      setStatus(`✓ ${done}장 성공 / ✗ ${failed}장 실패 (${detail})`, 'error');
     }
     uploadBtn.disabled = false;
   });
