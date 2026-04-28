@@ -52,8 +52,20 @@ const CONFIG = {
   brideName: '최은서',
 };
 
-// Gallery photos (excluded: 1st row 'town' 01-03, 7th row 'univ' 19-21 → 27 total)
-const GALLERY_IMAGES = [
+// Studio photos — featured at top of gallery in editorial 1-2-3-2 layout
+const STUDIO_IMAGES = [
+  'images/gallery/studio/1.JPG',
+  'images/gallery/studio/2.JPG',
+  'images/gallery/studio/3.JPG',
+  'images/gallery/studio/4.jpeg',
+  'images/gallery/studio/5.JPG',
+  'images/gallery/studio/6.JPG',
+  'images/gallery/studio/7.JPG',
+  'images/gallery/studio/8.JPG',
+];
+
+// Candid photos — visible only via "갤러리 더보기"
+const CANDID_IMAGES = [
   '04_yellow_1','05_yellow_2','06_yellow_3',
   '07_home_1','08_home_2','09_home_3',
   '10_night_1','11_night_2','12_night_3',
@@ -64,7 +76,10 @@ const GALLERY_IMAGES = [
   '28_green_1','29_green_2','30_green_3',
   '31_smile_1','32_smile_2','33_smile_3',
 ].map(slug => `images/gallery/${slug}.jpg`);
-const PREVIEW_COUNT = 6; // first 6 shown directly, rest via "더보기"
+
+// Combined: studio first, candid second. Lightbox indices reference this array.
+const GALLERY_IMAGES = [...STUDIO_IMAGES, ...CANDID_IMAGES];
+const PREVIEW_COUNT = STUDIO_IMAGES.length; // 8 — studio shown by default, candid via "더보기"
 
 const ACCOUNT_DATA = {
   groom: {
@@ -139,9 +154,17 @@ function renderGalleryPreview() {
 function renderGalleryModal() {
   const grid = $('#gallery-modal-grid');
   if (!grid) return;
-  grid.innerHTML = GALLERY_IMAGES
-    .map((src, i) => `<img src="${src}" alt="갤러리 ${i + 1}" data-idx="${i}" loading="lazy">`)
+  const studioOffset = STUDIO_IMAGES.length;
+  const studio = STUDIO_IMAGES
+    .map((src, i) => `<img src="${src}" alt="스튜디오 ${i + 1}" data-idx="${i}" loading="lazy">`)
     .join('');
+  const candid = CANDID_IMAGES
+    .map((src, i) => `<img src="${src}" alt="갤러리 ${i + 1}" data-idx="${studioOffset + i}" loading="lazy">`)
+    .join('');
+  grid.innerHTML = `
+    <div class="gallery-modal-studio">${studio}</div>
+    <div class="gallery-modal-candid">${candid}</div>
+  `;
   grid.addEventListener('click', e => {
     if (e.target.tagName === 'IMG') {
       openLightbox(parseInt(e.target.dataset.idx, 10));

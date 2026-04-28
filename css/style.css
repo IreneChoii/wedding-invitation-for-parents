@@ -364,19 +364,44 @@ section {
    3. GALLERY
    ================================================================ */
 .sec-gallery { background: var(--bg-secondary); }
+/* Editorial 1-2-3-2 layout for 8 studio photos */
 .gallery-preview {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 6px;
   margin: 0 auto 22px;
 }
 .gallery-preview img {
   width: 100%;
-  aspect-ratio: 1;
+  height: 100%;
   object-fit: cover;
   border-radius: var(--radius-sm);
   cursor: pointer;
   background: var(--bg-card);
+}
+/* Row 1 — hero (full width, slightly landscape) */
+.gallery-preview img:nth-child(1) {
+  grid-column: span 6;
+  aspect-ratio: 5 / 4;
+}
+/* Row 2 — two side-by-side portrait shots */
+.gallery-preview img:nth-child(2),
+.gallery-preview img:nth-child(3) {
+  grid-column: span 3;
+  aspect-ratio: 4 / 5;
+}
+/* Row 3 — triple grid for variety */
+.gallery-preview img:nth-child(4),
+.gallery-preview img:nth-child(5),
+.gallery-preview img:nth-child(6) {
+  grid-column: span 2;
+  aspect-ratio: 3 / 4;
+}
+/* Row 4 — closing pair */
+.gallery-preview img:nth-child(7),
+.gallery-preview img:nth-child(8) {
+  grid-column: span 3;
+  aspect-ratio: 4 / 5;
 }
 .gallery-more-wrap { text-align: center; }
 
@@ -448,11 +473,38 @@ section {
   z-index: 3;
 }
 .gallery-modal-grid {
+  display: block;
+}
+
+/* Studio: horizontal film strip — all studio shots in one swipeable row */
+.gallery-modal-studio {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  margin: 0 -20px 28px;
+  padding: 0 20px 8px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gallery-modal-studio::-webkit-scrollbar { display: none; }
+.gallery-modal-studio img {
+  flex: 0 0 auto;
+  width: 156px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  scroll-snap-align: start;
+}
+
+/* Candid: standard 3-column grid */
+.gallery-modal-candid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
 }
-.gallery-modal-grid img {
+.gallery-modal-candid img {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
