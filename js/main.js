@@ -54,13 +54,13 @@ const CONFIG = {
 
 // Studio photos — featured at top of gallery in editorial 1-2-3-2 layout
 const STUDIO_IMAGES = [
-  'images/gallery/studio/1.JPG',
+  'images/gallery/studio/1.jpg',
   'images/gallery/studio/2.JPG',
-  'images/gallery/studio/3.JPG',
-  'images/gallery/studio/4.jpeg',
-  'images/gallery/studio/5.JPG',
-  'images/gallery/studio/6.JPG',
-  'images/gallery/studio/7.JPG',
+  'images/gallery/studio/3.jpg',
+  'images/gallery/studio/4.jpg',
+  'images/gallery/studio/5.jpg',
+  'images/gallery/studio/6.jpg',
+  'images/gallery/studio/7.jpg',
   'images/gallery/studio/8.JPG',
 ];
 
